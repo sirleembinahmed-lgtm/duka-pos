@@ -1,44 +1,38 @@
 # Duka POS
 
-A simple retail point-of-sale system for a shop in Kenya. It is designed to be easy to install, run locally, and use in English with KSh currency.
+A simple retail POS application for a shop with English language and Kenyan Shilling (KSh) currency.
 
 ## Features
-- Product catalog
-- Add items to cart
-- Update quantities
-- Checkout with cash, Mpesa, or card
-- Track stock automatically
-- Daily sales overview
-- Recent sales list
+- Admin and cashier login
+- Sales screen with cart and checkout
+- Inventory management
+- Product editing and stock updates
+- Daily sales summary
+- SQLite local database
 
-## Requirements
-- Node.js 18 or later
-- npm
+## Default login accounts
+- Admin: admin / admin123
+- Cashier: cashier / cashier123
 
 ## Install
-1. Open a terminal in the project folder.
-2. Run:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-## Run the app
+2. Start the app:
+
 ```bash
 npm start
 ```
 
-Then open:
+3. Open in your browser:
 
 ```text
 http://localhost:3000
 ```
 
-## Default behavior
-- Currency: KSh (Kenyan Shilling)
-- Language: English
-- Database: SQLite stored in `data/duka.db`
-- Sample products are seeded automatically on first run
-
 ## Notes
-This is a basic POS app meant for local small-shop use. It is not a full enterprise inventory system, but it is a good starting point for a retail business.
+This app is designed for a small shop environment and is easy to run locally on one computer.
+

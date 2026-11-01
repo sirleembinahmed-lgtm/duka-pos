@@ -7,25 +7,45 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <div>
+    <div id="loginScreen" class="auth-screen">
+      <div class="auth-card">
+        <div class="auth-header">
           <p class="eyebrow">Retail Shop</p>
           <h1>Duka POS</h1>
         </div>
+
+        <form id="loginForm">
+          <label>
+            Username
+            <input id="usernameInput" type="text" placeholder="admin or cashier" required />
+          </label>
+          <label>
+            Password
+            <input id="passwordInput" type="password" placeholder="Password" required />
+          </label>
+          <button type="submit" class="primary-btn">Login</button>
+        </form>
+
+        <div class="credentials-box">
+          <strong>Demo logins</strong>
+          <div>Admin: admin / admin123</div>
+          <div>Cashier: cashier / cashier123</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="appScreen" class="app-shell hidden">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Retail Management</p>
+          <h1>Duka POS</h1>
+        </div>
+
         <div class="header-actions">
-          <label>
-            Customer
-            <input id="customerName" type="text" placeholder="Walk-in customer" />
-          </label>
-          <label>
-            Payment
-            <select id="paymentMethod">
-              <option value="Cash">Cash</option>
-              <option value="Mpesa">Mpesa</option>
-              <option value="Card">Card</option>
-            </select>
-          </label>
+          <div class="user-badge">
+            <span id="currentUser">User</span>
+          </div>
+          <button id="logoutBtn" class="secondary-btn">Logout</button>
         </div>
       </header>
 
@@ -49,37 +69,98 @@
       </section>
 
       <main class="main-grid">
-        <section class="panel products-panel">
+        <section class="panel sales-panel">
           <div class="panel-head">
-            <h2>Products</h2>
-            <input id="searchInput" type="search" placeholder="Search products..." />
+            <h2>POS Sales</h2>
+            <input id="searchInput" type="search" placeholder="Search product..." />
           </div>
+
           <div id="productGrid" class="product-grid"></div>
+
+          <div class="cart-box">
+            <div class="panel-head compact">
+              <h3>Current Sale</h3>
+            </div>
+
+            <div class="checkout-fields">
+              <label>
+                Customer
+                <input id="customerName" type="text" placeholder="Walk-in customer" />
+              </label>
+              <label>
+                Payment
+                <select id="paymentMethod">
+                  <option value="Cash">Cash</option>
+                  <option value="Mpesa">Mpesa</option>
+                  <option value="Card">Card</option>
+                </select>
+              </label>
+            </div>
+
+            <div id="cartItems" class="cart-items"></div>
+
+            <div class="totals">
+              <div class="total-row">
+                <span>Subtotal</span>
+                <strong id="subtotalValue">KSh 0.00</strong>
+              </div>
+              <div class="total-row total">
+                <span>Total</span>
+                <strong id="totalValue">KSh 0.00</strong>
+              </div>
+            </div>
+
+            <button id="checkoutBtn" class="primary-btn wide">Complete Sale</button>
+          </div>
         </section>
 
-        <aside class="panel cart-panel">
+        <aside class="panel inventory-panel">
           <div class="panel-head">
-            <h2>Current Sale</h2>
+            <h2>Inventory</h2>
           </div>
 
-          <div id="cartItems" class="cart-items"></div>
+          <form id="productForm" class="product-form">
+            <input id="productId" type="hidden" />
 
-          <div class="totals">
-            <div class="total-row">
-              <span>Subtotal</span>
-              <strong id="subtotalValue">KSh 0.00</strong>
+            <label>
+              Product Name
+              <input id="productName" type="text" placeholder="Enter item name" required />
+            </label>
+
+            <label>
+              Barcode
+              <input id="productBarcode" type="text" placeholder="Barcode" />
+            </label>
+
+            <label>
+              Category
+              <input id="productCategory" type="text" placeholder="Category" />
+            </label>
+
+            <div class="split-row">
+              <label>
+                Price
+                <input id="productPrice" type="number" min="0" step="0.01" placeholder="0.00" required />
+              </label>
+
+              <label>
+                Stock
+                <input id="productStock" type="number" min="0" step="1" placeholder="0" required />
+              </label>
             </div>
-            <div class="total-row">
-              <span>Tax</span>
-              <strong>KSh 0.00</strong>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Save Product</button>
+              <button type="button" id="cancelEditBtn" class="secondary-btn hidden">Cancel</button>
             </div>
-            <div class="total-row total">
-              <span>Total</span>
-              <strong id="totalValue">KSh 0.00</strong>
+          </form>
+
+          <div class="inventory-list-wrap">
+            <div class="inventory-header">
+              <h3>Products</h3>
             </div>
+            <div id="inventoryList" class="inventory-list"></div>
           </div>
-
-          <button id="checkoutBtn" class="checkout-btn">Complete Sale</button>
         </aside>
       </main>
 
@@ -94,3 +175,4 @@
     <script src="/app.js"></script>
   </body>
 </html>
+
