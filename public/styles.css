@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duka POS</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Retail Shop</p>
+          <h1>Duka POS</h1>
+        </div>
+        <div class="header-actions">
+          <label>
+            Customer
+            <input id="customerName" type="text" placeholder="Walk-in customer" />
+          </label>
+          <label>
+            Payment
+            <select id="paymentMethod">
+              <option value="Cash">Cash</option>
+              <option value="Mpesa">Mpesa</option>
+              <option value="Card">Card</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <div class="stat-card accent">
+          <span>Total sales today</span>
+          <strong id="todaySales">KSh 0.00</strong>
+        </div>
+        <div class="stat-card">
+          <span>Items sold</span>
+          <strong id="itemsSold">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Stock units</span>
+          <strong id="stockUnits">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Sales count</span>
+          <strong id="salesCount">0</strong>
+        </div>
+      </section>
+
+      <main class="main-grid">
+        <section class="panel products-panel">
+          <div class="panel-head">
+            <h2>Products</h2>
+            <input id="searchInput" type="search" placeholder="Search products..." />
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+        </section>
+
+        <aside class="panel cart-panel">
+          <div class="panel-head">
+            <h2>Current Sale</h2>
+          </div>
+
+          <div id="cartItems" class="cart-items"></div>
+
+          <div class="totals">
+            <div class="total-row">
+              <span>Subtotal</span>
+              <strong id="subtotalValue">KSh 0.00</strong>
+            </div>
+            <div class="total-row">
+              <span>Tax</span>
+              <strong>KSh 0.00</strong>
+            </div>
+            <div class="total-row total">
+              <span>Total</span>
+              <strong id="totalValue">KSh 0.00</strong>
+            </div>
+          </div>
+
+          <button id="checkoutBtn" class="checkout-btn">Complete Sale</button>
+        </aside>
+      </main>
+
+      <section class="panel recent-panel">
+        <div class="panel-head">
+          <h2>Recent Sales</h2>
+        </div>
+        <div id="salesList" class="sales-list"></div>
+      </section>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
